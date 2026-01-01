@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #2B4570;
+  --primary-dark: #21374F;
+  --primary-light: #3B5E8A;
+  --accent: #FF8C42;
+  --accent-dark: #E6752C;
+  --accent-light: #FFB380;
+  --text-primary: #1F2937;
+  --text-secondary: #4B5563;
+  --text-tertiary: #9B9B9B;
+  --bg-base: #F8F9FA;
+  --bg-surface: #FFFFFF;
+  --border-color: #E5E7EB;
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text-primary);
+  background-color: var(--bg-base);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* App Shell */
+.app-shell {
+  background: linear-gradient(180deg, rgba(27, 59, 111, 0.02) 0%, transparent 100%);
+}
+
+/* Utilities */
+.divider-subtle {
+  height: 1px;
+  background: var(--border-color);
+}
+
+@layer components {
+  /* Buttons */
+  .btn-primary {
+    @apply px-5 py-2.5 text-white font-semibold rounded-lg transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2;
+    font-family: 'Manrope', sans-serif;
+    background: linear-gradient(135deg, #1B3B6F 0%, #2B5AA0 100%);
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #142B52 0%, #1B3B6F 100%);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .btn-accent {
+    @apply px-5 py-2.5 text-white font-semibold rounded-lg transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2;
+    font-family: 'Manrope', sans-serif;
+    background-color: #FF8C42;
+  }
+
+  .btn-accent:hover {
+    background-color: #E6752C;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 font-medium rounded-lg border border-gray-200 transition-all duration-200 shadow-none hover:shadow-sm hover:bg-gray-50 active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-white;
+    color: #1B3B6F;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  .btn-ghost {
+    @apply px-4 py-2 font-medium transition-all duration-200 rounded-lg active:scale-[0.99] flex items-center justify-center gap-2;
+    font-family: 'Manrope', sans-serif;
+    color: #4B5563;
+  }
+
+  .btn-ghost:hover {
+    background-color: rgba(27, 59, 111, 0.05);
+    color: #1B3B6F;
+  }
+
+  /* Input Fields */
+  .input-field {
+    @apply w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-0 transition-all duration-200 placeholder-gray-400;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  .input-field:focus {
+    border-color: #1B3B6F;
+    box-shadow: 0 0 0 2px rgba(27, 59, 111, 0.1);
+  }
+
+  .input-field:disabled {
+    @apply bg-gray-50 text-gray-400 cursor-not-allowed;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-xl border border-gray-200 shadow-sm transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply shadow-md border-gray-300;
+  }
+
+  .card-premium {
+    @apply bg-white rounded-2xl border border-gray-200 shadow-lg transition-all duration-300;
+  }
+
+  /* Glass Effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-xl border border-white/20;
+  }
+
+  .glass-dark {
+    @apply bg-slate-900/80 backdrop-blur-xl border border-white/10;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .badge-primary {
+    background-color: rgba(27, 59, 111, 0.1);
+    color: #1B3B6F;
+  }
+
+  .badge-accent {
+    background-color: rgba(255, 140, 66, 0.1);
+    color: #FF8C42;
+  }
+
+  .badge-success {
+    @apply bg-green-100 text-green-700;
+  }
+
+  /* Typography */
+  .text-caption {
+    @apply text-xs font-semibold uppercase tracking-wider text-gray-500;
+  }
+
+  .text-muted {
+    @apply text-gray-500;
+  }
+
+  /* Brand Text */
+  .brand-name {
+    font-family: 'Manrope', sans-serif;
+    color: #1B3B6F;
+    font-weight: 700;
+  }
+
+  .brand-accent {
+    color: #FF8C42;
+  }
+
+  .brand-subtitle {
+    @apply text-xs font-semibold uppercase tracking-widest;
+    color: rgba(27, 59, 111, 0.6);
+  }
+
+  /* Utilities */
+  .muted {
+    @apply text-gray-400;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(209, 213, 219) transparent;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full hover:bg-gray-400;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(209, 213, 219) transparent;
+}
+
+/* Animations */
+@keyframes loading {
+  0%, 100% {
+    height: 2rem;
+    transform: scaleY(1);
+  }
+  50% {
+    height: 1.5rem;
+    transform: scaleY(0.5);
+    opacity: 0.5;
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-4px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus Visible */
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline: 2px solid #1B3B6F;
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: more) {
+  .btn-primary {
+    border: 2px solid #142B52;
+  }
+
+  .input-field {
+    border: 2px solid #1B3B6F;
+  }
+
+  .card {
+    border: 2px solid #E5E7EB;
+  }
+}
+
+/* Selection */
+::selection {
+  background-color: #1B3B6F;
+  color: white;
+}
+
+/* Sticky selection bar */
+.selection-bar {
+  position: relative;
+}
+
+.selection-bar.sticky {
+  position: sticky;
+  top: 5.5rem; /* sits below header */
+  z-index: 30;
+  box-shadow: 0 6px 18px -8px rgba(27,59,111,0.12);
+}
+
+/* Tooltip helper */
+.path-tooltip { @apply text-sm text-gray-600; }
+
+/* File card focus styling */
+.file-card:focus {
+  box-shadow: 0 0 0 4px rgba(43,69,112,0.06);
+  outline: 2px solid rgba(43,69,112,0.16);
+  outline-offset: 2px;
+  border-color: rgba(43,69,112,0.12);
+}
+
+/* Sticky / fixed selection bar for bulk actions */
+.selection-bar-fixed {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffffff;
+  border-top: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  box-shadow: 0 -6px 18px -8px rgba(27,59,111,0.08);
+  z-index: 40;
+}
+
+.selection-pill {
+  background-color: rgba(243,244,246,0.9);
+  color: var(--text-primary);
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Preview note */
+.preview-note { @apply text-sm text-gray-500; }
